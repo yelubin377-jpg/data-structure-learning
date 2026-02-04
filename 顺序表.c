@@ -1,5 +1,5 @@
-// ShunXuBiao ShiXian - ZhiChi DongTai KuoRong
-// 顺序表实现 - 支持动态扩容
+
+// 顺序表实现 
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -13,7 +13,7 @@ typedef struct
     int RongLiang;    // 容量
 } ShunXuBiao;         // 顺序表
 
-// ChuShiHua 初始化
+// 初始化
 int ChuShiHua(ShunXuBiao *B)  // B=表
 {
     if (!B)
@@ -26,7 +26,7 @@ int ChuShiHua(ShunXuBiao *B)  // B=表
     return 0;
 }
 
-// KuoRong 扩容
+//  扩容
 static int KuoRong(ShunXuBiao *B)
 {
     int XinRongLiang = B->RongLiang * 2;  // 新容量
@@ -39,7 +39,7 @@ static int KuoRong(ShunXuBiao *B)
     return 0;
 }
 
-// ChaRu 插入
+// 插入
 int ChaRu(ShunXuBiao *B, int WeiZhi, int Zhi)  // 位置, 值
 {
     if (!B || WeiZhi < 0 || WeiZhi > B->ChangDu)
@@ -54,13 +54,13 @@ int ChaRu(ShunXuBiao *B, int WeiZhi, int Zhi)  // 位置, 值
     return 0;
 }
 
-// ZhuiJia 追加
+//  追加
 int ZhuiJia(ShunXuBiao *B, int Zhi)  // 值
 {
     return ChaRu(B, B->ChangDu, Zhi);
 }
 
-// ShanChu 删除
+// 删除
 int ShanChu(ShunXuBiao *B, int WeiZhi, int *ShuChu)  // 位置, 输出
 {
     if (!B || B->ChangDu == 0 || WeiZhi < 0 || WeiZhi >= B->ChangDu)
@@ -73,7 +73,7 @@ int ShanChu(ShunXuBiao *B, int WeiZhi, int *ShuChu)  // 位置, 输出
     return 0;
 }
 
-// DaYin 打印
+//  打印
 void DaYin(ShunXuBiao *B)
 {
     if (!B)
@@ -84,7 +84,7 @@ void DaYin(ShunXuBiao *B)
     printf("\n");
 }
 
-// XiaoHui 销毁
+//  销毁
 void XiaoHui(ShunXuBiao *B)
 {
     if (B && B->ShuZu)
@@ -102,16 +102,16 @@ int main(void)
     
     ChuShiHua(&LieBiao);
     
-    // TianJia ShuJu 添加数据
+    // 添加数据
     for (int i = 1; i <= 6; i++)
         ZhuiJia(&LieBiao, i * 10);
     DaYin(&LieBiao);
     
-    // ZhongJian ChaRu 中间插入
+    //  中间插入
     ChaRu(&LieBiao, 2, 999);
     DaYin(&LieBiao);
     
-    // ShanChu 删除
+    // 删除
     ShanChu(&LieBiao, 3, &Zhi);
     printf("ShanChu Le: %d\n", Zhi);  // 删除了
     DaYin(&LieBiao);
