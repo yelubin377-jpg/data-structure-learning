@@ -1,4 +1,4 @@
-
+//
 // 顺序栈实现
 
 #include <stdio.h>
