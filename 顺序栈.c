@@ -1,4 +1,4 @@
-// ShunXuZhan ShiXian
+
 // 顺序栈实现
 
 #include <stdio.h>
@@ -12,25 +12,25 @@ typedef struct
     int DingBu;                    // 顶部 (ZhanDing XiaBiao, -1 BiaoShi Kong 栈顶下标,-1表示空)
 } Zhan;                            // 栈
 
-// ChuShiHua 初始化
+//  初始化
 void ChuShiHua(Zhan *Z)  // Z=栈
 {
     Z->DingBu = -1;
 }
 
-// ShiFouWeiKong 是否为空
+// 是否为空
 int ShiFouWeiKong(Zhan *Z)
 {
     return Z->DingBu == -1;
 }
 
-// ShiFouYiMan 是否已满
+// 是否已满
 int ShiFouYiMan(Zhan *Z)
 {
     return Z->DingBu == ZUI_DA_RONG_LIANG - 1;
 }
 
-// RuZhan 入栈
+//  入栈
 int RuZhan(Zhan *Z, int Zhi)  // 值
 {
     if (ShiFouYiMan(Z))
@@ -39,7 +39,7 @@ int RuZhan(Zhan *Z, int Zhi)  // 值
     return 0;
 }
 
-// ChuZhan 出栈
+// 出栈
 int ChuZhan(Zhan *Z, int *Zhi)  // 值
 {
     if (ShiFouWeiKong(Z))
@@ -48,7 +48,7 @@ int ChuZhan(Zhan *Z, int *Zhi)  // 值
     return 0;
 }
 
-// ChaKanDing 查看顶
+//  查看顶
 int ChaKanDing(Zhan *Z)
 {
     if (ShiFouWeiKong(Z))
@@ -56,7 +56,7 @@ int ChaKanDing(Zhan *Z)
     return Z->ShuJu[Z->DingBu];
 }
 
-// DaYinZhan 打印栈
+//  打印栈
 void DaYinZhan(Zhan *Z)
 {
     printf("Zhan: ");  // 栈
@@ -65,8 +65,8 @@ void DaYinZhan(Zhan *Z)
     printf("\n");
 }
 
-// JianChaKuoHao 检查括号
-// KuoHao PiPei JianCe 括号匹配检测
+//  检查括号
+//  括号匹配检测
 int JianChaKuoHao(const char *ZiFuChuan)  // 字符串
 {
     Zhan Z;           // 栈
@@ -101,18 +101,18 @@ int main(void)
     
     ChuShiHua(&MoGeZhan);
     
-    // RuZhan CeShi 入栈测试
+    //  入栈测试
     RuZhan(&MoGeZhan, 10);
     RuZhan(&MoGeZhan, 20);
     RuZhan(&MoGeZhan, 30);
     DaYinZhan(&MoGeZhan);
     
-    // ChuZhan 出栈
+    // 出栈
     ChuZhan(&MoGeZhan, &Zhi);
     printf("TanChu: %d\n", Zhi);  // 弹出
     DaYinZhan(&MoGeZhan);
     
-    // KuoHao PiPei 括号匹配
+    //  括号匹配
     printf("\nKuoHao PiPei CeShi:\n");  // 括号匹配测试
     printf("((a+b)): %s\n", JianChaKuoHao("((a+b))") ? "PiPei" : "BuPiPei");  // 匹配/不匹配
     printf("([)]: %s\n", JianChaKuoHao("([)]") ? "PiPei" : "BuPiPei");
