@@ -29,4 +29,5 @@ void SeqList_PopFront(Lb *ps); //头删法
 int SeqList_Find(Lb *ps,LbDataType x);//寻找
 void SeqList_Insert(Lb *ps,int pos,LbDataType x);
 void SeqList_Erase(Lb *ps,int pos);
+void SeqList_Destroy(Lb *ps);
 #endif

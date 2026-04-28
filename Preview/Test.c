@@ -20,6 +20,7 @@ void TestSeqList1()
         printf("%d\n",lb.a[i]);
     }
     SeqList_Find(&lb,400);
+    SeqList_Destroy(&lb);
     
 }
 

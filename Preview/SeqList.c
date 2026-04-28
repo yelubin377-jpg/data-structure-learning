@@ -118,11 +118,11 @@ int SeqList_Find(Lb *ps,LbDataType x)
 
 void SeqList_Insert(Lb *ps,int pos,LbDataType x)//pos指下标位置
 {
-    if(pos<0||pos>ps->size-1)
+    if(pos<0||pos>ps->size)
     {
         return;
     }
-    for(int i = ps->size-1;i>=pos;i--)
+    for(int i = ps->size;i>=pos;i--)
     {
         if(ps->size == ps->capacity)
         {
@@ -147,3 +147,15 @@ void SeqList_Erase(Lb *ps,int pos)
     }
     ps->size--;
 }
+void SeqList_Destroy(Lb *ps)
+{
+    if(NULL == ps->a)
+    {
+        perror("fail to free--from SeqList_Destroy");
+        exit(-1);
+    }
+    free(ps->a);
+    ps->a = NULL;
+    ps->size = 0;
+    ps->capacity = 0;
+} 
